@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #a972f9, #8127ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section {
+  position: relative;
+}
+section::after {
+  content: "";
+  width: 300px;
+  height: 6px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -35%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(2px);
+  animation: commentBoxShadow 3s linear infinite;
+}
+
+.commentbox {
+  width: 600px;
+  height: 300px;
+  background-color: #fff;
+  border: 3px solid #333;
+  border-radius: 18px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  transform: translate(0, 0) skewY(-4deg);
+  box-shadow: -1px -1px 0 #333, -2px -2px 0 #333, -3px -3px 0 #333,
+    -4px -4px 0 #333, -5px -5px 0 #333, -6px -6px 0 #333, -7px -7px 0 #333,
+    -8px -8px 0 #333, -9px -9px 0 #333;
+  animation: commentBoxAnimation 3s linear infinite;
+}
+
+.commentbox::before {
+  content: "";
+  position: absolute;
+  bottom: -33.5px;
+  right: 15%;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-left: 3px solid #333;
+  border-top: 3px solid #333;
+  border-top-left-radius: 9px;
+  transform: rotate(-135deg);
+}
+
+.userImage {
+  width: 60px;
+  height: 60px;
+  background-color: #151515;
+  border-radius: 50%;
+  margin: 0 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.userImage::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  /* background: url(); */
+  background-size: 80%;
+}
+
+.userName {
+  font-size: 2rem;
+}
+
+.userComment {
+  font-size: 1.4rem;
+  padding: 0 2rem 2rem 2rem;
+  text-align: center;
+  text-indent: 3rem;
+  position: relative;
+}
+
+.userComment::before,
+.userComment::after {
+  content: "\201c";
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 6.6rem;
+  position: absolute;
+}
+
+.userComment::before {
+  top: -22%;
+  left: 3%;
+  transform: rotate(6deg);
+}
+
+.userComment::after {
+  bottom: -2%;
+  right: 0;
+  transform: rotate(186deg);
+}
+
+@keyframes commentBoxAnimation {
+  0% {
+    transform: translateY(0) skewY(-4deg);
+  }
+  50% {
+    transform: translateY(-10%) skewY(-4deg);
+  }
+  100% {
+    transform: translateY(0) skewY(-4deg);
+  }
+}
+
+@keyframes commentBoxShadow {
+  0% {
+    width: 300px;
+  }
+  50% {
+    width: 230px;
+  }
+  100% {
+    width: 300px;
+  }
+}
